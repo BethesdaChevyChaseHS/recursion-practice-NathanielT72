@@ -10,22 +10,33 @@ public class RecursionPractice {
 	//if n == 0 or n == 1, 1 should be returned.
 	//note that a long is just an int with twice the memory
 	public static long factorial(long n){
-		return 0;
+		if(n<= 1) {
+			return n;
+		}
+		return n + factorial(n - 1);
 	}
 
 	//sum of n should return the long n added  by all numbers before it. 
 	//if n == 0, 0 should be returned.
 	//this is essentially factorial but with addition
 	public static long sum(long n){
-		return 0;
+		if(n<= 1) {
+			return n;
+		}
+		return n + sum(n - 1);
 	}
+	
+	
 	
 	// The fibonacci of n should return the long value at position n in the Fibonacci sequence.
 	// If n == 0, 0 should be returned.
 	// If n == 1, 1 should be returned.
 	// For n > 1, it should return the sum of fibonacci(n - 1) and fibonacci(n - 2).
 	public static long fibonacci(long n){
-		return 0;
+		if ( n <= 1) {
+			return n;
+		}
+		return fibonacci(n-1) + fibonacci(n-2);
 	}
 
 	//Should return the index of the first W/w in a string. 
@@ -39,7 +50,13 @@ public class RecursionPractice {
 	//1)  the character at the current index is W
 	//2) The current index is out of bounds
 	public static int findTheFirstW(String s, int curIndex){
-		return -1;
+		if (curIndex >= s.length()) {
+			return -1;
+		}
+		if (s.charAt(curIndex) == 'w') {
+			return curIndex;
+		}
+		return findTheFirstW(s, curIndex + 1);
 	}
 }
 
